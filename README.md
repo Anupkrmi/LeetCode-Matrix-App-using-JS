@@ -1,24 +1,3 @@
-git clone https://github.com/yourusername/LeetMatrix.git
-    ```
-2.  Navigate to the project directory:
-    ```bash
-    cd LeetMatrix
-    ```
-3.  Open the `index.html` file in your preferred web browser.
-
-## ⚠️ Important Note Regarding the API
-
-This project fetches data from the official LeetCode GraphQL API. Because LeetCode does not support CORS (Cross-Origin Resource Sharing) directly from browsers, this project uses `cors-anywhere` as a proxy. 
-
-**If the app gets stuck on "Searching..." or throws an error:**
-1. Navigate to `[https://cors-anywhere.herokuapp.com/](https://cors-anywhere.herokuapp.com/)` in your browser.
-2. Click the button that says **"Request temporary access to the demo server"**.
-3. Come back to LeetMatrix and search again!
-
-*(For a production environment, it is highly recommended to set up your own backend proxy server instead of relyingHere is a clean, professional `README.md` file tailored for your LeetMatrix project. You can copy and paste this directly into your GitHub repository.
-
-***
-
 # LeetMatrix 🚀
 
 LeetMatrix is a sleek, responsive web application designed to track and visualize your LeetCode profile statistics. Simply enter a LeetCode username to instantly view progress on Easy, Medium, and Hard questions, along with overall submission data, presented in beautiful, dynamic circular progress bars.
