@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
           try{
                searchButton.textContent = "Searching...";
                searchButton.disabled = true;
+               statsContainer.style.setProperty("display", "none");
 
                const proxyUrl = "https://cors-anywhere.herokuapp.com/";
                const targetUrl = "https://leetcode.com/graphql";
@@ -101,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
                          <h4>${data.label}</h4>
                          <p>${data.value}</p>
                     </div>`
-               );
+               ).join("");
      }
 
      searchButton.addEventListener("click", function() {
