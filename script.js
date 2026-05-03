@@ -25,12 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
      }
 
      async function fetchUserDetails(username) {
-          const url = `https://leetcode-stats-api.herokuapp.com/${username}`;
+
           try{
                searchButton.textContent = "Searching...";
                searchButton.disabled = true;
 
-               const response = await fetch(url);
+               const targetUrl = "https://leetcode.com/graphql";
+               const myHeaders = new Headers();
+               myHeaders.append("Content-Type", "application/json");
+
+               const graphql = JSON.stringify({
+                    query: "\n    query userSessionProgress($username: STring!) {\n allQuestionsCount {\n difficualty\n count\n }\n matchedUser(username: $username) {\n username\n submitStats {\n acSubmissionNum {\n difficulty\n count\n submissions\n }\n }\n }\n }\n    ",
+                    variables: {"username": `${username}`}
+               })
+               const requestOptions = {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: graphql,
+                    redirect: "follow"
+               };
+
+               const response = await fetch(targetUrl, requestOptions);
+
                if(!response.ok) {
                     throw new Error("User not found");
                }
