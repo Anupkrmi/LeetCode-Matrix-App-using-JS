@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
                displayUserData(parsedData);
           }
           catch(error) {
-               statsContainer.innerHTML = "<p>No data found</p>";
+               statsContainer.innerHTML = "<p>${error.message}</p>";
           }
           finally{
                searchButton.textContent = "Search";
@@ -86,6 +86,22 @@ document.addEventListener("DOMContentLoaded", function() {
           updateProgress(solvedTotalMediumQues, totalMediumQues, mediumLabel, mediumProgressCircle);
           updateProgress(solvedTotalHardQues, totalHardQues, hardLabel, hardProgressCircle);
 
+          const cardData = [
+               {label: "Overall Submissions", value: parsedData.data.matchedUser.submitStats.totalSubmissionNum[0].submissions},
+               {label: "Overall Easy Submissions", value: parsedData.data.matchedUser.submitStats.totalSubmissionNum[1].submissions},
+               {label: "Overall Medium Submissions", value: parsedData.data.matchedUser.submitStats.totalSubmissionNum[2].submissions},
+               {label: "Overall Hard Submissions", value: parsedData.data.matchedUser.submitStats.totalSubmissionNum[3].submissions},
+          ];
+
+          console.log("Card data: ", cardData);
+
+          cardStatsConatainer.innerHTML = cardData.map(
+               data => 
+                    `<div class="stats-card">
+                         <h4>${data.label}</h4>
+                         <p>${data.value}</p>
+                    </div>`
+               );
      }
 
      searchButton.addEventListener("click", function() {
