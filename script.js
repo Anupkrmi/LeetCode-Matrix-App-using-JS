@@ -65,6 +65,12 @@ document.addEventListener("DOMContentLoaded", function() {
           }
      }
 
+     function updateProgress(solved, total, label, circle){
+          const progressDegree = (solved / total) * 100;
+          circle.style.setProperty("--progree-degree", `${progressDegree}%`);
+          label.textContent = `${solved}/${total}`;
+     }
+
      function displayUserData(parsedData) {
           const totalQues = parsedData.data.allQuestionCount[0].count;
           const totalEasyQues = parsedData.data.allQuestionCount[1].count;
@@ -75,6 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
           const solvedTotalEasyQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[1].count;
           const solvedTotalMediumQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[2].count;
           const solvedTotalHardQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[3].count;
+
+          updateProgress(solvedTotalEasyQues, totalEasyQues, easyLabel, easyProgressCircle);
+          updateProgress(solvedTotalMediumQues, totalMediumQues, mediumLabel, mediumProgressCircle);
+          updateProgress(solvedTotalHardQues, totalHardQues, hardLabel, hardProgressCircle);
+
      }
 
      searchButton.addEventListener("click", function() {
