@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
           try{
                searchButton.textContent = "Searching...";
                searchButton.disabled = true;
-               
+
                const response = await fetch(url);
                if(!response.ok) {
                     throw new Error("User not found");
@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
                console.log("Logging data: ", data);
           }
           catch(error) {
-               ;
+               statsContainer.innerHTML = "<p>No data found</p>";
           }
           finally{
-
+               searchButton.textContent = "Search";
+               searchButton.disabled = false;
           }
      }
 
