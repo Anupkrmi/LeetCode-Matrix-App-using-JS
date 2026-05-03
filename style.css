@@ -6,13 +6,54 @@
 }
 
 body{
-    background-color: rgb(50, 62, 85);
+    /* added a nice dark gradient here */
+    background: linear-gradient(135deg, rgb(30, 45, 65), rgb(70, 50, 85));
     color: white;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* gives it room to breathe on mobile */
+    flex-direction: column; /* stacking nav, main, footer */
+}
+
+/* nav bar styling */
+nav {
+     background-color: rgba(0, 0, 0, 0.4);
+     padding: 1rem 2rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: rgb(150, 100, 255);
+}
+
+.nav-links {
+     display: flex;
+     gap: 1.5rem;
+     list-style: none;
+}
+
+.nav-links a {
+     color: white;
+     text-decoration: none;
+     font-size: 1.1rem;
+     transition: color 0.3s;
+}
+
+.nav-links a:hover {
+     color: orange;
+}
+
+/* centers the box and pushes footer down */
+main {
+     flex: 1;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 20px;
 }
 
 .container{
@@ -60,6 +101,11 @@ h1{
      border: none;
      cursor: pointer;
      width: 20%;
+}
+
+/* hide stats initially until user searches */
+.stats-container {
+     display: none; 
 }
 
 .circle{
@@ -124,8 +170,19 @@ h4{
      text-align: center;
 }
 
+/* footer styling */
+footer {
+     background-color: rgba(0, 0, 0, 0.4);
+     text-align: center;
+     padding: 1rem;
+}
+
 /* making it responsive for smaller screens */
 @media (max-width: 480px) {
+     nav {
+          flex-direction: column;
+          gap: 10px;
+     }
      .user-input-container {
           flex-direction: column;
      }
