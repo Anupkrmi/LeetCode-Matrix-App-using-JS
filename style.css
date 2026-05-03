@@ -8,13 +8,14 @@
 body{
     background-color: rgb(50, 62, 85);
     color: white;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px; /* gives it room to breathe on mobile */
 }
 
-.conatiner{
+.container{
      display: flex;
      flex-direction: column;
      gap: 1rem;
@@ -22,11 +23,12 @@ body{
      padding: 20px;
      border-radius: 5px;
      max-width: 600px;
-     width: 50%
+     width: 100%;
 }
 
 h1{
      font-size: 2rem;
+     text-align: center;
 }
 
 .user-container{
@@ -39,12 +41,15 @@ h1{
 .user-input-container{
      display: flex;
      justify-content: space-between;
+     gap: 10px;
 }
 
-#user-input{
+#username-input{
      width: 80%;
      padding: 0.4rem;
      border-radius: 5px;
+     border: none;
+     outline: none;
 }
 
 #search-btn{
@@ -54,9 +59,10 @@ h1{
      color: white;
      border: none;
      cursor: pointer;
+     width: 20%;
 }
 
-circle{
+.circle{
      width: 120px;
      height: 120px;
      border-radius: 50%;
@@ -71,6 +77,7 @@ circle{
      background: conic-gradient(#299f5d var(--progress-degree, 0%), #283a2e 0%);
      flex-direction: column;
 }
+
 .circle span{
      position: relative;
      z-index: 2;
@@ -81,7 +88,14 @@ circle{
      flex-direction: row;
      justify-content: space-evenly;
      flex-wrap: wrap;
-     gap: 10px;
+     gap: 20px;
+}
+
+.progress-item{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 5px;
 }
 
 .stats-cards{
@@ -95,14 +109,30 @@ circle{
 
 h4{
      font-size: 1rem;
+     margin-bottom: 5px;
 }
 
 .card{
      background-color: orange;
-     width: 40%;
+     width: 45%;
      max-width: 250px;
      padding: 10px;
      border-radius: 10px;
      font-size: 1rem;
      min-height: 4rem;
+     color: black;
+     text-align: center;
+}
+
+/* making it responsive for smaller screens */
+@media (max-width: 480px) {
+     .user-input-container {
+          flex-direction: column;
+     }
+     #username-input, #search-btn {
+          width: 100%;
+     }
+     .card {
+          width: 100%;
+     }
 }
