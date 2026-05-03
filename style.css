@@ -69,6 +69,7 @@ circle{
      color: white;
      font-weight: 700;
      background: conic-gradient(#299f5d var(--progress-degree, 0%), #283a2e 0%);
+     flex-direction: column;
 }
 .circle span{
      position: relative;
@@ -81,4 +82,27 @@ circle{
      justify-content: space-evenly;
      flex-wrap: wrap;
      gap: 10px;
+}
+
+.stats-cards{
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     justify-content: space-evenly;
+}
+
+h4{
+     font-size: 1rem;
+}
+
+.card{
+     background-color: orange;
+     width: 40%;
+     max-width: 250px;
+     padding: 10px;
+     border-radius: 10px;
+     font-size: 1rem;
+     min-height: 4rem;
 }
