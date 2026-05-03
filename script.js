@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
                searchButton.textContent = "Searching...";
                searchButton.disabled = true;
 
+               const proxyUrl = "https://cors-anywhere.herokuapp.com/";
                const targetUrl = "https://leetcode.com/graphql";
                const myHeaders = new Headers();
                myHeaders.append("Content-Type", "application/json");
@@ -45,13 +46,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     redirect: "follow"
                };
 
-               const response = await fetch(targetUrl, requestOptions);
+               const response = await fetch(proxyUrl+targetUrl, requestOptions);
 
                if(!response.ok) {
                     throw new Error("User not found");
                }
-               const data = await response.json();
-               console.log("Logging data: ", data);
+               const parsedData = await response.json();
+               console.log("Logging data: ", parsedData);
+
+               displayUserData(parsedData);
           }
           catch(error) {
                statsContainer.innerHTML = "<p>No data found</p>";
@@ -60,6 +63,18 @@ document.addEventListener("DOMContentLoaded", function() {
                searchButton.textContent = "Search";
                searchButton.disabled = false;
           }
+     }
+
+     function displayUserData(parsedData) {
+          const totalQues = parsedData.data.allQuestionCount[0].count;
+          const totalEasyQues = parsedData.data.allQuestionCount[1].count;
+          const totalMediumQues = parsedData.data.allQuestionCount[2].count;
+          const totalHardQues = parsedData.data.allQuestionCount[3].count;
+
+          const solvedTotalQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[0].count;
+          const solvedTotalEasyQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[1].count;
+          const solvedTotalMediumQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[2].count;
+          const solvedTotalHardQues = parsedData.data.matchedUser.submitStats.acSubmissionNum[3].count;
      }
 
      searchButton.addEventListener("click", function() {
