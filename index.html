@@ -3,57 +3,74 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
+     <title>LeetMatrix</title>
      <link rel="stylesheet" href="style.css">
 </head>
 <body>
      
-     <div class="container">
+     <!-- top nav bar -->
+     <nav>
+          <div class="logo">LeetMatrix</div>
+          <ul class="nav-links">
+               <li><a href="#">Home</a></li>
+               <li><a href="#">Leaderboard</a></li>
+               <li><a href="#">About</a></li>
+          </ul>
+     </nav>
 
-          <!-- heading, user, stats -->
+     <!-- main content wrapper to center the card -->
+     <main>
+          <div class="container">
 
-          <h1>LeetMatrix</h1>
+               <!-- heading, user, stats -->
+               <h1>LeetMatrix</h1>
 
-          <div class="user-container">
-               <p>Enter your Username below:</p>
-                    <div class="user-input-container">
-                         <input type="text" placeholder="Enter your username" id="username-input">
-                         <button id="search-btn">Search</button>
-                    </div>
-          </div>
-
-          <div class="stats-container">
-               <div class="progress">
-
-                    <div class="progress-item">
-                         <div class="easy-progress circle">
-                              <span id="easy-label"></span>
-                              <p>Easy</p>
+               <div class="user-container">
+                    <p>Enter your Username below:</p>
+                         <div class="user-input-container">
+                              <input type="text" placeholder="Enter your username" id="username-input">
+                              <button id="search-btn">Search</button>
                          </div>
-                    </div>
-
-                    <div class="progress-item">
-                         <div class="medium-progress circle">
-                              <span id="medium-label"></span>
-                              <p>Medium</p>
-                         </div>
-                    </div>
-
-                    <div class="progress-item">
-                         <div class="hard-progress circle">
-                              <span id="hard-label"></span>
-                              <p>Hard</p>
-                         </div>
-                    </div>
-
                </div>
 
-               <div class="stats-cards">
-                    <!-- directly populate card here from js code -->
+               <div class="stats-container">
+                    <div class="progress">
+
+                         <div class="progress-item">
+                              <div class="easy-progress circle">
+                                   <span id="easy-label"></span>
+                                   <p>Easy</p>
+                              </div>
+                         </div>
+
+                         <div class="progress-item">
+                              <div class="medium-progress circle">
+                                   <span id="medium-label"></span>
+                                   <p>Medium</p>
+                              </div>
+                         </div>
+
+                         <div class="progress-item">
+                              <div class="hard-progress circle">
+                                   <span id="hard-label"></span>
+                                   <p>Hard</p>
+                              </div>
+                         </div>
+
+                    </div>
+
+                    <div class="stats-cards">
+                         <!-- directly populate card here from js code -->
+                    </div>
                </div>
+          
           </div>
-     
-     </div>
+     </main>
+
+     <!-- bottom footer -->
+     <footer>
+          <p>&copy; 2026 LeetMatrix Tracker. All rights reserved.</p>
+     </footer>
 
      <script src="script.js"></script>
 </body>
